@@ -58,6 +58,7 @@ class Command(BaseCommand):
             if self.test_mode else self.POPULATE_FN_NAME
 
         for app_name, app_config in apps.app_configs.items():
+            print(app_name, app_config, self.POPULATE_MODULE_NAME)
             try:
                 available_modules[app_name] = import_string("{}.{}.{}".format(
                     app_config.module.__package__,
